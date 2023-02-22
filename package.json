@@ -1,0 +1,32 @@
+{
+  "name": "mr-test-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "config": {
+    "webAppGitUrl": "https://github.com/andrea-filoso/mr-test.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webapp:clean": "cross-conf-env rimraf web-app && git rm -r --cached web-app",
+    "webapp:init": "cross-conf-env git submodule add $npm_package_config_webAppGitUrl web-app",
+    "postwebapp:init": "git submodule status web-app",
+    "modules:init": "git submodule update --init --recursive",
+    "modules:update": "git submodule update --recursive --remote"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrea-filoso/mr-test-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrea-filoso/mr-test-server/issues"
+  },
+  "homepage": "https://github.com/andrea-filoso/mr-test-server#readme",
+  "dependencies": {
+    "cross-conf-env": "^1.3.0",
+    "rimraf": "^4.1.2"
+  }
+}
